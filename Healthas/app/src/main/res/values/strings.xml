@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">health</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="select">请选择</string>
+
+    <string name="dialog_title">正在获取内容</string>
+    <string name="dialog_message">请稍候...</string>
+
+    <string name="widget_cvoice_play">点击播放录音</string>
+    <string name="widget_cvoice_pause">正在播放0%</string>
+    <string name="init_decoders">正在初始化, 请稍候...</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

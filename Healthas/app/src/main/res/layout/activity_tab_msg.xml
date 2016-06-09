@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg">
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="50dip"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/textSport"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="运动鼓励"
+                android:textColor="@color/gray333"
+                android:textSize="14dp" />
+
+            <View
+                android:id="@+id/viewLine1"
+                android:layout_width="80dp"
+                android:layout_height="2dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"
+                android:background="#A3C841"></View>
+
+            <TextView
+                android:id="@+id/textTag"
+                android:layout_width="1dip"
+                android:layout_height="fill_parent"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/texTag1"
+                android:layout_width="6dip"
+                android:layout_height="6dip"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="16dip"
+                android:layout_toLeftOf="@id/textTag"
+                android:background="@drawable/tag_red_bg"
+                android:gravity="center"
+                android:minWidth="12dip"
+                android:visibility="gone"
+                android:textColor="#fff"
+                android:textSize="8dip" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/textHealth"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="健康提醒"
+                android:textColor="@color/gray333"
+                android:textSize="14dp" />
+
+            <View
+                android:id="@+id/viewLine2"
+                android:layout_width="80dp"
+                android:layout_height="2dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="#A3C841"
+                android:visibility="gone"></View>
+
+            <TextView
+                android:id="@+id/textTag0"
+                android:layout_width="1dip"
+                android:layout_height="fill_parent"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/texTag2"
+                android:layout_width="6dip"
+                android:layout_height="6dip"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="16dip"
+                android:layout_toLeftOf="@id/textTag0"
+                android:background="@drawable/tag_red_bg"
+                android:gravity="center"
+                android:minWidth="12dip"
+                android:textColor="#fff"
+                android:textSize="8dip"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/textMsg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="预警消息"
+                android:textColor="@color/gray333"
+                android:textSize="14dp" />
+
+            <View
+                android:id="@+id/viewLine3"
+                android:layout_width="80dp"
+                android:layout_height="2dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="#A3C841"
+                android:visibility="gone"></View>
+
+            <TextView
+                android:id="@+id/textTag00"
+                android:layout_width="1dip"
+                android:layout_height="fill_parent"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/texTag3"
+                android:layout_width="6dip"
+                android:layout_height="6dip"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="16dip"
+                android:layout_toLeftOf="@id/textTag00"
+                android:background="@drawable/tag_red_bg"
+                android:gravity="center"
+                android:minWidth="12dip"
+                android:textColor="#fff"
+                android:textSize="8dip"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

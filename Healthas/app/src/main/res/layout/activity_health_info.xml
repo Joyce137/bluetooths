@@ -1,0 +1,894 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fadingEdge="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="姓名"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:id="@+id/editName"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="填写姓名"
+                    android:singleLine="true"
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="4dip"
+                    android:src="@drawable/arrow"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dip"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="10dip"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="性别"
+                        android:textColor="@color/gray666"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/editSex"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="填写性别"
+                        android:singleLine="true"
+                        android:textColor="@color/gray666"
+                        android:textColorHint="@color/gray999"
+                        android:textSize="14dp" />
+
+                    <ImageView
+                        android:layout_width="30dip"
+                        android:layout_height="30dip"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="4dip"
+                        android:src="@drawable/arrow"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dip"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="10dip"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="民族"
+                        android:textColor="@color/gray666"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/editNation"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:hint="填写民族"
+                        android:singleLine="true"
+                        android:textColor="@color/gray666"
+                        android:textColorHint="@color/gray999"
+                        android:textSize="14dp" />
+
+                    <ImageView
+                        android:layout_width="30dip"
+                        android:layout_height="30dip"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="4dip"
+                        android:src="@drawable/arrow"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="身份证号"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:id="@+id/editNo"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="填写身份证号"
+                    android:paddingRight="12dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="4dip"
+                    android:src="@drawable/arrow"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="本人电话"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:id="@+id/editPhone"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="填写本人电话"
+                    android:inputType="number"
+                    android:paddingRight="12dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="4dip"
+                    android:src="@drawable/arrow"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="联系人姓名"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:id="@+id/editContact"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="填写联系人姓名"
+                    android:paddingRight="12dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="4dip"
+                    android:src="@drawable/arrow"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="联系电话"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:id="@+id/editTel"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="填写联系人电话"
+                    android:paddingRight="12dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="4dip"
+                    android:src="@drawable/arrow"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="血型"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+                <!--  在早期的sdk, EditText有Editable属性, 现在这个属性已经deprecated了.
+
+                   解决方法：
+                   其实只需一行代码就能搞定et.setKeyListener(null);
+                   -->
+                <TextView
+                    android:id="@+id/textBlood"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="血型"
+
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="RH阴性"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/textHR"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="RH阴性"
+
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="文化程度"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/textLevel"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="文化程度"
+
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:gravity="center_vertical"
+                    android:minWidth="60dp"
+                    android:text="职业"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dip"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/textProfession"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:background="@null"
+                    android:gravity="center|left"
+                    android:hint="职业"
+                    android:maxWidth="200dp"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="婚姻状况"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/textMarry"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="婚姻状况"
+
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="医疗费用支付方式"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/textPay"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="医疗费用支付方式"
+
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="药物过敏史"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/textDrug"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="药物过敏史"
+                    android:maxWidth="200dp"
+                    android:text=""
+
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="家族史父亲"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/textFather"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="疾病史"
+
+                    android:maxWidth="200dp"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="家族史母亲"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/textMather"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="疾病史"
+
+                    android:maxWidth="200dp"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="家族史兄弟姐妹"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/textBrother"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="疾病史"
+
+                    android:maxWidth="200dp"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="家族史子女"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/textSon"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="疾病史"
+
+                    android:maxWidth="200dp"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="遗传病史"
+                    android:textColor="@color/gray666"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/textHistory"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="遗传病史"
+
+                    android:maxWidth="200dp"
+                    android:text=""
+                    android:textColor="@color/gray666"
+                    android:textColorHint="@color/gray999"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1000"
+    android:gravity="center"
+    android:orientation="vertical" >
+<!-- android:background="@drawable/over_view_tips_bg" -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ffffff"
+        android:orientation="vertical"
+         android:gravity="center"
+        android:padding="20dip" >
+
+        <ImageView
+            android:layout_width="64dip"
+            android:layout_height="64dip"
+            android:layout_marginBottom="10dip"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="-40dip"
+            android:layout_gravity="center"
+             />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="fill_parent"
+                android:layout_height="30dip"
+                android:gravity="center"
+                android:tag="textTitle"
+                android:text="无法联接服务器"
+                android:textColor="#ccc"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textTips"
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:tag="textTips"
+            android:gravity="center"
+            android:text="请检查您的手机网络是否可用"
+            android:textColor="#ccc"
+            android:textSize="14dp" />
+        
+        <Button
+            android:id="@+id/btnRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+          	android:background="@drawable/btn_sub_selector"
+            android:paddingBottom="8dip"
+            android:paddingLeft="18dip"
+            android:paddingRight="18dip"
+            android:paddingTop="8dip"
+            android:shadowColor="#0000"
+            android:layout_gravity="center"
+            android:shadowRadius="0"
+            android:tag="btnRefresh"
+            android:text="重试"
+            android:textColor="#fff"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+</LinearLayout>

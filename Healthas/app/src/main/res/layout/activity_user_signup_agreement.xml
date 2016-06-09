@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fadingEdge="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:text="用户协议"
+                android:gravity="center"
+                android:textColor="@color/text"
+                android:textSize="18dp" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:text="
+本协议是用户（以下简称“您“）与爱网特商城网站（网址：包括但不限于www.51awt.com等，简称“本站“）所有者及其关联公司（以下简称为“爱网特商城“）之间就爱网特商城网站服务等相关事宜所订立的契约，请您仔细阅读本注册协议，您点击“同意并继续“按钮后，即视为您接受并同意遵守本协议的约定。
+
+第1条 本站服务条款的确认和接纳
+
+1.1本站的各项电子服务的所有权和运作权归爱网特商城所有。您同意所有注册协议条款并完成注册程序，才能成为本站的正式用户。您确认：本协议条款是处理双方权利义务的依据，始终有效，法律另有强制性规定或双方另有特别约定的，依其规定或约定。
+
+1.2您点击同意本协议的，即视为您确认自己具有享受本站服务、下单购物等相应的权利能力和行为能力，能够独立承担法律责任。
+
+1.3您确认，如果您在18周岁以下，您只能在父母或其他监护人的监护参与下才能使用本站。
+
+1.4爱网特商城保留在中华人民共和国大陆地区施行之法律允许的范围内独自决定拒绝服务、关闭用户账户、清除或编辑内容或取消订单的权利。
+
+1.5您使用本站提供的服务时，应同时接受适用于本站特定服务、活动等的准则、条款和协议（以下统称为“其他条款“）；如果以下使用条件与“其他条款”有"
+                android:textColor="@color/text"
+                android:textSize="14dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

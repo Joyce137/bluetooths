@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnMore"
+            android:layout_width="44dip"
+            android:layout_height="44dip"
+            android:layout_alignParentLeft="true"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/more" />
+
+        <ImageButton
+            android:id="@+id/btnSport"
+            android:layout_width="44dip"
+            android:layout_height="44dip"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="44dp"
+            android:background="@null"
+            android:padding="7dp"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:src="@drawable/ration_prescription" />
+
+        <TextView
+            android:id="@+id/textNavbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="44dip"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="账号登录"
+            android:textColor="#fff"
+            android:textSize="18dp"></TextView>
+
+        <Button
+            android:id="@+id/btnAttention"
+            android:layout_width="60dip"
+            android:layout_height="44dip"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:text="关注"
+            android:textColor="#fff"
+            android:textSize="16dp" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></FrameLayout>
+
+    <!--<include-->
+    <!--android:id="@+id/include_bottom"-->
+    <!--layout="@layout/main_bottom"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"></include>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#efefe2"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ly_monitor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnMonitorTab"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/tab_selector_monitor" />
+
+                <TextView
+                    android:id="@+id/tv_monitor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="实时监测"
+                    android:textColor="#99C22C"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_sport"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnSportTab"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/tab_selector_sport" />
+
+                <TextView
+                    android:id="@+id/tv_sport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="定量运动"
+                    android:textColor="#A7A7A6"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_health"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnHealthTab"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/tab_selector_health" />
+
+                <TextView
+                    android:id="@+id/tv_health"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="健康监测"
+                    android:textColor="#A7A7A6"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_msg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnMsgTab"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/tab_selector_msg" />
+
+                <TextView
+                    android:id="@+id/tv_mag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="消息"
+                    android:textColor="#A7A7A6"
+                    android:textSize="12dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

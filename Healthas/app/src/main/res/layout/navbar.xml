@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/main_bg" >
+
+    <!-- 顶栏 -->
+
+    <RelativeLayout
+        android:id="@+id/rlayoutNavbar"
+        android:layout_width="fill_parent"
+        android:layout_height="44dip"
+        android:background="@null" >
+
+        <Button
+            android:id="@+id/btnRightWenzi"
+            android:layout_width="60dip"
+            android:layout_height="44dip"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:text="筛选"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnRightPic"
+            android:layout_width="24dp"
+            android:layout_height="24dip"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:background="@null"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnRightPic2"
+            android:layout_width="wrap_content"
+            android:layout_height="44dip"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textNavbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="44dip"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="账号登录"
+            android:textColor="@color/white"
+            android:textSize="18dp" >
+        </TextView>
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="44dip"
+            android:layout_height="44dip"
+            android:layout_alignParentLeft="true"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/navbar_back" />
+    </RelativeLayout>
+
+    <!-- 主内容框架 -->
+
+    <LinearLayout
+        android:id="@+id/llayoutContent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="44dip"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llayoutNavDialog"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#50000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="272dip"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cell_bg"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textNavTip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dip"
+                android:gravity="center"
+                android:text="清空商品浏览历史"
+                android:textColor="#666"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textNavDesc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dip"
+                android:layout_marginTop="13dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="确认要清空商品浏览历史么？"
+                android:textColor="#999"
+                android:textSize="14dp" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/split" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="44dip"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/btnNavCancel"
+                    android:layout_width="136dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:text="取消"
+                    android:textColor="@color/blue_highlight"
+                    android:textSize="16dp" />
+
+                <LinearLayout
+                    android:id="@+id/llayoutLine"
+                    android:layout_width="1dip"
+                    android:layout_height="fill_parent"
+                    android:background="@color/split"
+                    android:orientation="horizontal" >
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnNavSure"
+                    android:layout_width="136dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:text="确定"
+                    android:textColor="@color/blue_highlight"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

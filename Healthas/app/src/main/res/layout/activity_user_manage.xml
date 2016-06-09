@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/user_bg">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fadingEdge="none">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <com.health.app.widget.RoundAngleImageView
+                android:id="@+id/imageUser"
+                android:layout_width="100dip"
+                android:layout_height="100dip"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dip"
+                android:scaleType="centerCrop"
+                android:src="@drawable/headsculpture1" />
+
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:gravity="center_horizontal"
+                android:text="名字"
+                android:textColor="#85ab33"
+                android:textSize="16dp" />
+
+            <Button
+                android:id="@+id/btnOut"
+                android:layout_width="190dip"
+                android:layout_height="36dip"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_weight="1"
+                android:background="@drawable/btn_sub_selector"
+                android:text="退出登录"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+
+            <LinearLayout
+                android:id="@+id/llayoutDeList"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/textMyDevice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="20dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="我的设备"
+                    android:textColor="@color/text"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/textDevice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center_vertical"
+                    android:text="我的设备"
+                    android:textColor="#959F6E"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:id="@+id/llayoutDevice"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="20dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="设备设置"
+                    android:textColor="@color/text"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:id="@+id/llayoutTarget"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="20dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="目标设置"
+                    android:textColor="@color/text"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:id="@+id/llayoutPwd"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="20dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="密码修改"
+                    android:textColor="@color/text"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:visibility="gone"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+
+            <LinearLayout
+                android:id="@+id/llayoutAbout"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="20dip"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="关于我们"
+                    android:textColor="@color/text"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@color/split2" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

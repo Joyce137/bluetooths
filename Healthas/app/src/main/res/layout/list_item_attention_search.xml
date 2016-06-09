@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <com.health.app.widget.RoundAngleImageView
+            android:id="@+id/imageUser"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/headsculpture1" />
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="我的设备"
+            android:textColor="@color/gray333"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnSub"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:textColor="@color/gray333"
+            android:text="加关注"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_sub_selector"/>
+    </LinearLayout>
+
+
+</LinearLayout>

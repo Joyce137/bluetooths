@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical" >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <com.lohas.app.widget.PagerIndicator
+        android:id="@+id/pagerIndicator"
+        android:layout_width="fill_parent"
+        android:layout_height="18dip"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/mProgressBarLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="20dip"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="18dip"
+        android:gravity="center"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</RelativeLayout>
