@@ -39,7 +39,23 @@
                 android:layout_marginTop="20dp"
                 android:src="@drawable/equipmentloading" />
 
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="扫描到的设备"
+                android:textColor="@android:color/white"
+                android:textSize="22sp" />
 
+            <android.support.v7.widget.RecyclerView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/scan_recyclerview"
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="10dp" />
         </LinearLayout>
     </ScrollView>
 

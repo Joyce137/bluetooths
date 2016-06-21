@@ -81,9 +81,12 @@ public class BluetoothLeService extends Service {
     private final BluetoothGattCallback mGattCallback = new BluetoothGattCallback() {
         @Override
         public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
+            Log.e(TAG, "onConnectionStateChange received: " + status);
             String intentAction;
             System.out.println("=======status:" + status);
             if (newState == BluetoothProfile.STATE_CONNECTED) {
+                SampleGattAttributes.notify(gatt, UUID.fromString(SampleGattAttributes.CHARACTERISTIC_NOTIFY));//启动等待notify监听
+                SampleGattAttributes.notify(gatt, UUID.fromString(SampleGattAttributes.POWER));//启动等待notify监听
                 intentAction = ACTION_GATT_CONNECTED;
                 mConnectionState = STATE_CONNECTED;
                 broadcastUpdate(intentAction);
@@ -102,8 +105,11 @@ public class BluetoothLeService extends Service {
 
         @Override
         public void onServicesDiscovered(BluetoothGatt gatt, int status) {
+            Log.e(TAG, "onServicesDiscovered received: " + status);
+            SampleGattAttributes.notify(gatt, UUID.fromString(SampleGattAttributes.POWER));//启动等待notify监听
            if (status == BluetoothGatt.GATT_SUCCESS) {
-              if(SampleGattAttributes.whichactivityconnect)  SampleGattAttributes.notify(gatt, UUID.fromString(SampleGattAttributes.CHARACTERISTIC_NOTIFY));//启动等待notify监听
+              if(SampleGattAttributes.whichactivityconnect)
+                  SampleGattAttributes.notify(gatt, UUID.fromString(SampleGattAttributes.CHARACTERISTIC_NOTIFY));//启动等待notify监听
                 broadcastUpdate(ACTION_GATT_SERVICES_DISCOVERED);
             } else {
                 Log.w(TAG, "onServicesDiscovered received: " + status);
@@ -112,7 +118,8 @@ public class BluetoothLeService extends Service {
 
         @Override
         public void onCharacteristicRead(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
-            System.out.println("onCharacteristicRead");
+            Log.e(TAG, "onCharacteristicRead received: " + status);
+
             if (status == BluetoothGatt.GATT_SUCCESS) {
                 broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
             }
@@ -125,15 +132,17 @@ public class BluetoothLeService extends Service {
         }*/
         @Override
         public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
+            Log.e(TAG, "onCharacteristicChanged received: ");
             broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
             if (characteristic.getValue() != null) {
                 System.out.println(characteristic.getStringValue(0));
             }
-            System.out.println("--------onCharacteristicChanged-----");
+
         }
 
         @Override
         public void onReadRemoteRssi(BluetoothGatt gatt, int rssi, int status) {
+            Log.e(TAG, "onReadRemoteRssi received: " );
             System.out.println("rssi = " + rssi);
         }
 
@@ -159,6 +168,9 @@ public class BluetoothLeService extends Service {
 
     private void broadcastUpdate(final String action,
                                  final BluetoothGattCharacteristic characteristic) {
+
+        final int charaProp = characteristic.getProperties();
+
         final Intent intent = new Intent(action);
         int[] value = new int[6];
         int[] format = new int[3];
@@ -252,6 +264,12 @@ public class BluetoothLeService extends Service {
         }
 
         sendBroadcast(intent);
+    }
+
+    public void notifyBle() {
+        if (mBluetoothGatt != null) {
+            SampleGattAttributes.notify(mBluetoothGatt, UUID.fromString(SampleGattAttributes.CHARACTERISTIC_NOTIFY));//启动等待notify监听
+        }
     }
 
     /**

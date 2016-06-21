@@ -1113,7 +1113,9 @@ public class SettingActivity extends AppCompatActivity {
             else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
 
                 if (intent.getStringExtra("DataType").equals("SevenDayData")) {
-                    //
+                    byte[] dataBytes = intent.getByteArrayExtra("data");
+                    String powerStr = dataBytes.length+"%";
+                    dianliang.setText(powerStr);
                 }
                 //广播间隔
                 else if (intent.getStringExtra("DataType").equals("broadcastperiod")) {

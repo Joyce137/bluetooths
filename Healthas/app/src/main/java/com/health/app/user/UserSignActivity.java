@@ -17,6 +17,7 @@ import com.health.app.MainActivity;
 import com.health.app.R;
 import com.health.app.api.Api;
 import com.health.app.device.BindActivity;
+import com.health.app.statics.Users;
 import com.health.app.type.UserResponse;
 import com.health.app.util.Preferences;
 import com.health.app.widget.FLActivity;
@@ -101,7 +102,8 @@ public class UserSignActivity extends FLActivity {
 				}
 				hideSoftInput(editName);
 				showLoadingLayout("正在登录，请稍后...");
-				new Api(callback,mApp).signIn(tel,pwd);
+				new Api(callback,mApp).signIn(tel, pwd);
+				Users.sLoginUsername = tel;
 			}
 		});
 	}
@@ -140,10 +142,10 @@ public class UserSignActivity extends FLActivity {
 			dismissLoadingLayout();
 			showMessage(message);
 
-//			Intent intent = new Intent();
-//			intent.setClass(mActivity, MainActivity.class);
-//			startActivity(intent);
-//			finish();
+			Intent intent = new Intent();
+			intent.setClass(mActivity, MainActivity.class);
+			startActivity(intent);
+			finish();
 
 		}
 	};

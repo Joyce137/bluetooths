@@ -1,0 +1,99 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:2:1-51:12
+	xmlns:android
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:2:11-69
+	package
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:3:5-36
+		INJECTED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:5:5-30
+		INJECTED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml
+	android:versionCode
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:4:5-28
+		INJECTED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml
+uses-sdk
+ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:23.0.0] /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/AndroidManifest.xml:20:5-43
+	android:targetSdkVersion
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:9:9-38
+		INJECTED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:8:9-35
+		INJECTED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.BLUETOOTH
+ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:11:5-68
+	android:name
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:11:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:12:5-74
+	android:name
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:12:22-71
+uses-feature#android.hardware.bluetooth_le
+ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:14:5-16:36
+	android:required
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:16:9-33
+	android:name
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:15:9-53
+application
+ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:18:5-49:19
+MERGED from [com.android.support:support-v4:23.0.0] /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/AndroidManifest.xml:22:5-20
+	android:label
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:21:9-41
+	android:allowBackup
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:19:9-35
+	android:icon
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:20:9-45
+	android:theme
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:23:9-40
+	android:logo
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:22:9-45
+activity#org.bluetooth.bledemo.ScanningActivity
+ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:24:9-33:20
+	android:screenOrientation
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:27:13-49
+	android:label
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:26:13-45
+	android:name
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:25:13-66
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:28:13-32:29
+action#android.intent.action.MAIN
+ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:29:17-69
+	android:name
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:29:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:31:17-77
+	android:name
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:31:27-74
+activity#org.bluetooth.bledemo.PeripheralActivity
+ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:34:9-39:20
+	android:windowSoftInputMode
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:38:13-52
+	android:screenOrientation
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:37:13-49
+	android:label
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:36:13-62
+	android:name
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:35:13-68
+activity#org.bluetooth.bledemo.HRDemoActivity
+ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:40:9-48:20
+	android:screenOrientation
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:44:13-49
+	android:label
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:42:13-58
+	android:parentActivityName
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:43:13-80
+	android:name
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:41:13-64
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:45:13-47:74
+	android:name
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:46:17-63
+	android:value
+		ADDED from /Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/AndroidManifest.xml:47:17-71

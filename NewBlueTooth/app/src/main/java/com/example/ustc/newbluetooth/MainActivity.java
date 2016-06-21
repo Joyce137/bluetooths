@@ -37,6 +37,7 @@ import com.example.ustc.newbluetooth.datas.TimeData;
 import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
 import java.util.Calendar;
+import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
     //蓝牙相关
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     static BluetoothLeService mBluetoothLeService ;
 
-    Button button;
+    Button button, notifyBtn;
     public static Context context;
     private static TextView tv_toolbar_state;
 
@@ -106,6 +107,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,SettingActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        notifyBtn = (Button) findViewById(R.id.notifyBtn);
+        notifyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mBluetoothLeService.notifyBle();
             }
         });
 

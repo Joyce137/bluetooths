@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/build/intermediates/res/merged/debug/menu/peripheral.xml",
+        "source": "/Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/res/menu/peripheral.xml"
+    },
+    {
+        "merged": "/Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/build/intermediates/res/merged/debug/menu/scanning.xml",
+        "source": "/Users/CaoRuijuan/Desktop/bluetooths/BLE/BLEDemo1/app/src/main/res/menu/scanning.xml"
+    }
+]

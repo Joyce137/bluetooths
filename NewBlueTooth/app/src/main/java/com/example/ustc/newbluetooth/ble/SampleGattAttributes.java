@@ -52,7 +52,7 @@ public class SampleGattAttributes {
     public static Calendar lastrecall=Calendar.getInstance();
     public static Calendar thisrecall=Calendar.getInstance();
     public static Calendar checkifrecall=Calendar.getInstance();
-    public  static int controlbroadcast=0;
+    public static int controlbroadcast=0;
 
 
 
@@ -120,7 +120,8 @@ public class SampleGattAttributes {
 
         BluetoothGattCharacteristic characteristic = service.getCharacteristic(notifieduuid);//这个可能是写uuid
         characteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_NO_RESPONSE);//这句话实际写的是descriptor字段
-        return gatt.setCharacteristicNotification(characteristic, true);//理解为设立某characteristic，对其字段改变进行通知，连接开始时为空
+        boolean notifyEnabled = gatt.setCharacteristicNotification(characteristic, true);
+        return notifyEnabled;//理解为设立某characteristic，对其字段改变进行通知，连接开始时为空
     }
 
     /**

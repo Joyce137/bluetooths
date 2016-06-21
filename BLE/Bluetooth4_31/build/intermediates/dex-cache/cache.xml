@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/CaoRuijuan/Documents/adt-bundle-mac-x86_64-20131030/sdk/extras/android/m2repository/com/android/support/support-v4/19.0.0/support-v4-19.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="afee690af14bd2c32d400cdf78e746fd45c386fa">
+        <dex dex="/Users/CaoRuijuan/Desktop/bluetooths/BLE/Bluetooth4_31/app/build/intermediates/pre-dexed/debug/support-v4-19.0.0_ec4bd917b90d32c92abbabfdb8a04e1c63aa6bbb.jar" />
+    </item>
+
+</items>

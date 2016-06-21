@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.health.app">
 
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="false"/>
+
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -37,9 +39,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name="com.health.app.ble.BluetoothLeService"></service>
+        <service android:name="com.health.app.ble.DeviceControlService"></service>
+        <!--<receiver android:name=".MainActivity$MyBroadcastReceiver01">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.health.app.ble.MY_BROADCAST01" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!--<receiver android:name=".MainActivity$MyBroadcastReceiver02">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.health.app.ble.MY_BROADCAST02" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+
+
         <activity
             android:name="com.health.app.MainActivity"
-            android:launchMode="singleTask"
+
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden"></activity>
         <activity
