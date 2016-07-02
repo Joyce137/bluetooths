@@ -9,7 +9,7 @@ import com.health.app.database.annotation.TableName;
  * Created by CaoRuijuan on 6/18/16.
  */
 @TableName(DBConstants.TABLE_TIMEDATA)
-public class TimeData {
+public class TimeDataEntity {
     @PrimaryKey(autoincrement=true)
     @ColumnName(DBConstants.TABLE_KEY)
     public int id;
@@ -19,4 +19,7 @@ public class TimeData {
 
     @ColumnName(DBConstants.TIMEDATA_TIME)
     public String time;
+
+    @ColumnName(DBConstants.APP_TIME)
+    public String appTime;
 }

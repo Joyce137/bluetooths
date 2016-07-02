@@ -9,13 +9,19 @@ import com.health.app.database.annotation.TableName;
  * Created by CaoRuijuan on 6/18/16.
  */
 @TableName(DBConstants.TABLE_CYCLEHEARTRATEDATA)
-public class CycleHeartRateData {
+public class CycleHeartRateDataEntity {
     @PrimaryKey(autoincrement=true)
     @ColumnName(DBConstants.TABLE_KEY)
     public int id;
 
     @ColumnName(DBConstants.BLE_ADDRESS)
     public String address;
+
+    @ColumnName(DBConstants.NOTIFY_TIME)
+    public String notifyTime;
+
+    @ColumnName(DBConstants.APP_TIME)
+    public String appTime;
 
     @ColumnName(DBConstants.CYCLEHEARTRATEDATA_SIZE)
     public String size;

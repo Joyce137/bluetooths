@@ -9,4 +9,5 @@ public class BleInfo {
     public static boolean scanStaus = true;
     public static String mCurScanAddress = null;
     public static byte[] mCurScanRecord;
+    public static String mCurNotifyTime;
 }

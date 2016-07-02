@@ -12,24 +12,33 @@ public class DBConstants {
     //用户蓝牙数据
     public static final String TABLE_BLE = "scanbledata";
     public static final String TABLE_KEY = "id";
-    public static final String BLE_ADDRESS = "address";
-    public static final String BLE_BYTES = "bytes";
     public static final String BLE_DATATIME = "datatime";
+    public static final String BLE_ADDRESS = "address";
+    public static final String NOTIFY_TIME = "notifyTime";
+    public static final String APP_TIME = "appTime";
+    public static final String BLE_BATTERY = "battery";
+    public static final String BLE_BROKENSTATE = "broken_state";
+    public static final String BLE_BYTES = "bytes";
     public static final String BLE_HEARTRATE = "heartrate";
+    public static final String BLE_SPORTLEVEL = "sport_level";
     public static final String BLE_STEPNUM = "stepnum";
     public static final String BLE_CALORIE = "calorie";
     public static final String BLE_AMUTOFERCE = "amutoferce";
+    public static final String BLE_TXPOWER = "tx_power";
+    public static final String BLE_SOSSTATE = "sos_state";
     //创建_bledata表
     public static String BLE_DB_CREATE = "create table "+
             TABLE_BLE + " ("+
             TABLE_KEY + " integer primary key autoincrement, "+
-            BLE_ADDRESS + " text not null, "+
             BLE_DATATIME + " text not null, "+
-            BLE_BYTES + " text not null, "+
+            BLE_ADDRESS + " text not null, "+
+            BLE_BATTERY + " text not null, "+
+            BLE_BROKENSTATE + " text not null, "+
             BLE_HEARTRATE + " text, "+
+            BLE_SPORTLEVEL + " text not null, "+
             BLE_STEPNUM + " text, "+
-            BLE_CALORIE + " text, "+
-            BLE_AMUTOFERCE + " text);";
+            BLE_TXPOWER + " text, "+
+            BLE_SOSSTATE + " text);";
     //删除ble表
     public static final String BLE_DB_DROP = "drop table if exists "+TABLE_BLE;
 
@@ -41,7 +50,8 @@ public class DBConstants {
             TABLE_TIMEDATA + " ("+
             TABLE_KEY + " integer primary key autoincrement, "+
             BLE_ADDRESS + " text not null, "+
-            TIMEDATA_TIME + "text not null);";
+            TIMEDATA_TIME + " text not null, "+
+            APP_TIME + " text not null);";
     //删除timedata表
     public static final String TIMEDATA_DROP = "drop table if exists "+TABLE_TIMEDATA;
 
@@ -59,13 +69,15 @@ public class DBConstants {
             TABLE_SPORTDATA + " ("+
             TABLE_KEY + " integer primary key autoincrement, "+
             BLE_ADDRESS + " text not null, "+
+            NOTIFY_TIME + " text not null, "+
+            APP_TIME + " text not null, "+
             SPORTDATA_DATE + " text not null, "+
             SPORTDATA_MONTH + " text not null, "+
             SPORTDATA_STEP + " text not null, "+
             SPORTDATA_PROPERTIMES + " text not null, "+
             SPORTDATA_STRONGTIMES + " text not null, "+
             SPORTDATA_SPORTSTRENGTH + " text not null, "+
-            SPORTDATA_VALIDTIMES + "text not null);";
+            SPORTDATA_VALIDTIMES + " text not null);";
     //删除timedata表
     public static final String SPORTDATA_DROP = "drop table if exists "+TABLE_SPORTDATA;
 
@@ -89,6 +101,8 @@ public class DBConstants {
             TABLE_CYCLEHEARTRATEDATA + " ("+
             TABLE_KEY + " integer primary key autoincrement, "+
             BLE_ADDRESS + " text not null, "+
+            NOTIFY_TIME + " text not null, "+
+            APP_TIME + " text not null, "+
             CYCLEHEARTRATEDATA_SIZE + " text not null, "+
             CYCLEHEARTRATEDATA_DATA1 + " text not null, "+
             CYCLEHEARTRATEDATA_DATA2 + " text not null, "+
@@ -101,7 +115,7 @@ public class DBConstants {
             CYCLEHEARTRATEDATA_DATA9 + " text not null, "+
             CYCLEHEARTRATEDATA_DATA10 + " text not null, "+
             CYCLEHEARTRATEDATA_DATA11 + " text not null, "+
-            CYCLEHEARTRATEDATA_DATA12 + "text not null);";
+            CYCLEHEARTRATEDATA_DATA12 + " text not null);";
     //删除cycleheartratedata表
     public static final String CYCLEHEARTRATEDATA_DROP = "drop table if exists "+TABLE_CYCLEHEARTRATEDATA;
 
@@ -125,6 +139,8 @@ public class DBConstants {
             TABLE_NIGHTHEARTRATEDATA + " ("+
             TABLE_KEY + " integer primary key autoincrement, "+
             BLE_ADDRESS + " text not null, "+
+            NOTIFY_TIME + " text not null, "+
+            APP_TIME + " text not null, "+
             CYCLEHEARTRATEDATA_SIZE + " text not null, "+
             CYCLEHEARTRATEDATA_DATA1 + " text not null, "+
             CYCLEHEARTRATEDATA_DATA2 + " text not null, "+
@@ -137,7 +153,7 @@ public class DBConstants {
             CYCLEHEARTRATEDATA_DATA9 + " text not null, "+
             CYCLEHEARTRATEDATA_DATA10 + " text not null, "+
             CYCLEHEARTRATEDATA_DATA11 + " text not null, "+
-            CYCLEHEARTRATEDATA_DATA12 + "text not null);";
+            CYCLEHEARTRATEDATA_DATA12 + " text not null);";
     //删除nightheartratedata表
     public static final String NIGHTHEARTRATEDATA_DROP = "drop table if exists "+TABLE_NIGHTHEARTRATEDATA;
 
@@ -147,6 +163,8 @@ public class DBConstants {
             TABLE_HEARTRATEDATA + " ("+
             TABLE_KEY + " integer primary key autoincrement, "+
             BLE_ADDRESS + " text not null, "+
+            NOTIFY_TIME + " text not null, "+
+            APP_TIME + " text not null, "+
             SPORTDATA_DATE + " text not null, "+
             SPORTDATA_MONTH + " text not null, "+
             CYCLEHEARTRATEDATA_SIZE + " text not null, "+
@@ -161,7 +179,7 @@ public class DBConstants {
             CYCLEHEARTRATEDATA_DATA9 + " text not null, "+
             CYCLEHEARTRATEDATA_DATA10 + " text not null, "+
             CYCLEHEARTRATEDATA_DATA11 + " text not null, "+
-            CYCLEHEARTRATEDATA_DATA12 + "text not null);";
+            CYCLEHEARTRATEDATA_DATA12 + " text not null);";
     //删除heartratedata表
     public static final String HEARTRATEDATA_DROP = "drop table if exists "+TABLE_HEARTRATEDATA;
 

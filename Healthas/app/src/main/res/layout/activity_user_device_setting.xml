@@ -121,7 +121,7 @@
                         android:textSize="14dp" />
 
                     <TextView
-                        android:id="@+id/textTime"
+                        android:id="@+id/heartratecycleText"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginRight="14dp"
@@ -505,7 +505,7 @@
 
                 <LinearLayout
                     android:layout_marginLeft="13dp"
-                    android:id="@+id/ll_time"
+                    android:id="@+id/ll_sendpower1"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
 
@@ -515,7 +515,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
-                        android:text="同步时间" />
+                        android:text="发射功率1" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -524,26 +524,19 @@
                         android:orientation="horizontal" />
 
                     <TextView
-                        android:id="@+id/time"
+                        android:id="@+id/sendpower1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginBottom="10dp"
                         android:layout_marginRight="20dp"
-                        android:layout_marginTop="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:text="0" />
 
                 </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/split2" />
-
                 <LinearLayout
                     android:layout_marginLeft="13dp"
-                    android:id="@+id/ll_sendpower"
+                    android:id="@+id/ll_sendpower2"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
 
@@ -553,7 +546,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
-                        android:text="发射功率" />
+                        android:text="发射功率2" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -562,14 +555,45 @@
                         android:orientation="horizontal" />
 
                     <TextView
-                        android:id="@+id/sendpower"
+                        android:id="@+id/sendpower2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginBottom="10dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginTop="10dp"
-                        android:text="3" />
+                        android:text="0" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="13dp"
+                    android:id="@+id/ll_sendpower3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="发射功率3" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/sendpower3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="0" />
 
                 </LinearLayout>
 

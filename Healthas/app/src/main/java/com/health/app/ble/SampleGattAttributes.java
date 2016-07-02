@@ -62,6 +62,7 @@ public class SampleGattAttributes {
     public static String sportMealTime = "0000800b-0000-1000-8000-00805f9b34fb";//运动与用餐时间
     //格式：4byte,byte1设置晨练时间，默认为6，byte2设置早餐时间，默认为7，
     // byte3设置午餐时间，默认为12，byte4设置晚餐时间，默认为18
+
     public static String nightCheckTime = "0000800c-0000-1000-8000-00805f9b34fb"; //夜间检测时间，默认为10min
     public static String autoCheckHeartTimeSteps = "0000800d-0000-1000-8000-00805f9b34fb";//自动心率检测步数，默认为100步
     public static String lcdControl = "0000800e-0000-1000-8000-00805f9b34fb";  //LCD刷屏数据通道，1byte

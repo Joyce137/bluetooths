@@ -263,7 +263,10 @@ public class Util {
         return true;
     }
 
-
+    //获取当前时间
+    public static String getAppTime() {
+        return getDate() + getTime();
+    }
 
     //获取当前时间
     public static String getCurrentTime() {
@@ -446,5 +449,14 @@ public class Util {
         Rect bounds = new Rect();
         paint.getTextBounds(str, 0, str.length(), bounds);
         return bounds.width();
+    }
+
+    public static byte changeStringToByte(String s) {
+        int value = Integer.valueOf(s);
+        byte b = (byte) (value &0xff);
+        if(value < 0){
+            b = (byte) (b|0x80);
+        }
+        return b;
     }
 }

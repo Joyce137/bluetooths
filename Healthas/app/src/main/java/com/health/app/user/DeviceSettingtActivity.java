@@ -37,16 +37,18 @@ import java.util.UUID;
 public class DeviceSettingtActivity extends FLActivity {
 	LinearLayout ll_power, ll_testxinlv;
 	Button scbtn_timesync,scbtn_lxtestxinlv,scbtn_sleepmode,sc_setting_stepstest,sc_setting_autoheartratetest,sc_setting_nightheartratetest;
-	TextView tv_power;
+	TextView tv_power, tv_heartratecycle;
 	TextView textPwd;
 
-	LinearLayout ly_setting_testxinlv, ly_setting_stepstest, ly_setting_autoheartratetest, ly_setting_nightheartratetest,
-			ll_broadcastjiange, ll_broadcasttime, ll_guangbodatatime, ll_dianliang, ll_cycleheartratetesttimes,
-			ll_broadcastcalltime, ll_time, ll_sendpower, ll_heartratemax, ll_heartratemin, ll_heartrateqvalue,
-			ll_extime, ll_breadfasttime, ll_lunchtime, ll_dinnertime, ll_nighttesttime, ll_autoheartrateteststeps, ll_lcd;
+	LinearLayout ll_heartratecycle, ly_setting_testxinlv, ly_setting_stepstest, ly_setting_autoheartratetest, ly_setting_nightheartratetest,
+			ll_broadcastjiange, ll_broadcasttime, ll_guangbodatatime,ll_cycleheartratetesttimes, ll_broadcastcalltime,
+			ll_sendpower1, ll_sendpower2, ll_sendpower3,
+			ll_heartratemax, ll_heartratemin, ll_heartrateqvalue,
+			ll_extime, ll_breadfasttime, ll_lunchtime, ll_dinnertime, ll_nighttesttime,
+			ll_autoheartrateteststeps, ll_lcd;
 
 	TextView reconnect,broadcastjiange,broadcasttime, guangbodatatime, dianliang, cycleheartratetesttimes,
-			broadcastcalltime, time, sendpower, heartratemax, heartratemin, heartrateqvalue,
+			broadcastcalltime, time, sendpower1, sendpower2, sendpower3, heartratemax, heartratemin, heartrateqvalue,
 			extime, breadfasttime, lunchtime, dinnertime, nighttesttime, autoheartrateteststeps, lcd;
 
 	boolean istestxinlv = false, istestxinlv_open = false, istestxinlv_close = false;
@@ -109,6 +111,26 @@ public class DeviceSettingtActivity extends FLActivity {
 
 	@Override
 	public void linkUiVar() {
+		broadcastjiange = (TextView)findViewById(R.id.broadcastjiange);
+		broadcasttime = (TextView)findViewById(R.id.broadcasttime);
+		guangbodatatime = (TextView)findViewById(R.id.guangbodatatime);
+		cycleheartratetesttimes = (TextView)findViewById(R.id.cycleheartratetesttimes);
+		broadcastcalltime = (TextView)findViewById(R.id.broadcastcalltime);
+		time = (TextView)findViewById(R.id.time);
+		sendpower1 = (TextView)findViewById(R.id.sendpower1);
+		sendpower2 = (TextView)findViewById(R.id.sendpower2);
+		sendpower3 = (TextView)findViewById(R.id.sendpower3);
+		heartratemax = (TextView)findViewById(R.id.heartratemax);
+		heartratemin = (TextView)findViewById(R.id.heartratemin);
+		heartrateqvalue = (TextView)findViewById(R.id.heartrateqvalue);
+		extime = (TextView)findViewById(R.id.extime);
+		breadfasttime = (TextView)findViewById(R.id.breadfasttime);
+		lunchtime = (TextView)findViewById(R.id.lunchtime);
+		dinnertime = (TextView)findViewById(R.id.dinnertime);
+		nighttesttime = (TextView)findViewById(R.id.nighttesttime);
+		autoheartrateteststeps = (TextView)findViewById(R.id.autoheartrateteststeps);
+		lcd = (TextView)findViewById(R.id.lcd);
+
 		textPwd = (TextView) findViewById(R.id.textPwd);
 		ll_power = (LinearLayout) findViewById(R.id.ly_power);
 		tv_power = (TextView) findViewById(R.id.textPower);
@@ -118,6 +140,16 @@ public class DeviceSettingtActivity extends FLActivity {
 				mBluetoothLeService.readMessage(UUID.fromString(SampleGattAttributes.POWER));//
 			}
 		});
+
+		tv_heartratecycle = (TextView) findViewById(R.id.heartratecycleText);
+		ll_heartratecycle = (LinearLayout) findViewById(R.id.ly_heartratecycle);
+		ll_heartratecycle.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				heartratecycle();
+			}
+		});
+
 		scbtn_timesync = (Button) findViewById(R.id.btnTime);
 		scbtn_timesync.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -182,6 +214,13 @@ public class DeviceSettingtActivity extends FLActivity {
 			}
 		});
 
+		ll_heartratecycle= (LinearLayout) findViewById(R.id.ly_heartratecycle);
+		ll_heartratecycle.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				heartratecycle();
+			}
+		});
 		ll_broadcastjiange = (LinearLayout) findViewById(R.id.ll_broadcastjiange);
 		ll_broadcastjiange.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -219,13 +258,28 @@ public class DeviceSettingtActivity extends FLActivity {
 			}
 		});
 
-		ll_sendpower = (LinearLayout) findViewById(R.id.ll_sendpower);
-		ll_sendpower.setOnClickListener(new View.OnClickListener() {
+		ll_sendpower1 = (LinearLayout) findViewById(R.id.ll_sendpower1);
+		ll_sendpower1.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				setSendPower();
+				setSendPower1();
 			}
 		});
+		ll_sendpower2 = (LinearLayout) findViewById(R.id.ll_sendpower2);
+		ll_sendpower2.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				setSendPower2();
+			}
+		});
+		ll_sendpower3 = (LinearLayout) findViewById(R.id.ll_sendpower3);
+		ll_sendpower3.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				setSendPower3();
+			}
+		});
+
 		ll_heartratemax = (LinearLayout) findViewById(R.id.ll_heartratemax);
 		ll_heartratemax.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -298,6 +352,50 @@ public class DeviceSettingtActivity extends FLActivity {
 		});
 	}
 
+	//选择测心率的周期
+	public void heartratecycle() {
+		final String[] mList = {"2时/次", "1次/时", "2次/时", "5次/时", "1次/时", "20次/时"};
+
+		AlertDialog.Builder sinChosDia = new AlertDialog.Builder(DeviceSettingtActivity.this);
+		sinChosDia.setTitle("选择测心率的周期");
+		sinChosDia.setSingleChoiceItems(mList, 0, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				int measuretimes = 12;
+				switch (which) {
+					case 0:
+						measuretimes = 12;
+						break;
+					case 1:
+						measuretimes = 24;
+						break;
+					case 2:
+						measuretimes = 48;
+						break;
+					case 3:
+						measuretimes = 120;
+						break;
+					case 4:
+						measuretimes = 240;
+						break;
+					case 5:
+						measuretimes = 480;
+						break;
+				}
+				SharedPreferences sharedPreferences = getSharedPreferences("share", MODE_PRIVATE);
+				SharedPreferences.Editor editor = sharedPreferences.edit();
+				editor.putString("DEVICE_HEART_PERIOD", mList[which]);
+				editor.commit();
+				tv_heartratecycle.setText(mList[which]);
+				p = Util.shortToLH(measuretimes);
+				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.HEARTRATEPERIODRW), p);////写入
+				dialog.dismiss();
+			}
+		});
+		sinChosDia.show();
+	}
+
 
 	private void sleepmode(boolean isChecked) {
 		sleepMode.testConnect();
@@ -328,7 +426,7 @@ public class DeviceSettingtActivity extends FLActivity {
 			int mMinute = c.get(Calendar.MINUTE);
 			int msecond = c.get(Calendar.SECOND);
 			byte[] p = Util.shortToLH(mYear);
-			System.out.println("年" + mYear + "月份" + mMonth + "时" + mHour + "分" + mMinute + "秒" + msecond);
+			System.out.println(mYear + "年" + mMonth + "月" + mDay + "日" + mHour + "时" + mMinute + "分" + msecond + "秒");
 			byte[] data = {(byte) msecond, (byte) mMinute, (byte) mHour, (byte) mDay,
 					(byte) mMonth, p[0], p[1]};
 			mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.TIMEADJUSTRW), data);//
@@ -506,26 +604,122 @@ public class DeviceSettingtActivity extends FLActivity {
 		}
 	}
 
-	//设置发射功率
-	private void setSendPower() {
+	//设置发射功率1
+	private void setSendPower1() {
 		AlertDialog.Builder customDia1=new AlertDialog.Builder(this);
 		customDia1.setIcon(R.mipmap.ic_launcher);
 		final View viewDia1= LayoutInflater.from(this).inflate(R.layout.alert_dialog, null);
 		TextView textView1 = (TextView) viewDia1.findViewById(R.id.unit);
-		textView1.setText("W");
+		textView1.setText("db");
 		TextView textView2 = (TextView) viewDia1.findViewById(R.id.fanwei);
-		textView2.setText("范围：0W-10W");
-		customDia1.setTitle("设置发射功率");
+		textView2.setText("范围：0db-2db");
+		customDia1.setTitle("设置发射功率1");
 		customDia1.setView(viewDia1);
 		customDia1.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				TextView textView = (TextView) viewDia1.findViewById(R.id.newValue);
 				newValue = textView.getText().toString();
-				broadcastjiange.setText(newValue + "W");
+				sendpower1.setText(newValue);
 				int value = Integer.valueOf(newValue);
-				p = Util.shortToLH(value);
-				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.sendPowerRW), p);////写入
+				byte p1 = (byte) (value &0xff);
+				String txp2 = sendpower2.getText().toString();
+				value = Integer.valueOf(txp2);
+				byte p2 = (byte)(value &0xff);
+				String txp3 = sendpower3.getText().toString();
+				value = Integer.valueOf(txp3);
+				byte p3 = (byte)(value &0xff);
+//				byte p3 = -1;
+				byte[] txpower = new byte[3];
+				txpower[0] = p1;
+				txpower[1] = p2;
+				txpower[2] = p3;
+				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.sendPowerRW), txpower);////写入
+			}
+		});
+		customDia1.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				dialog.dismiss();
+			}
+		});
+		customDia1.create().show();
+	}
+
+	//设置发射功率2
+	private void setSendPower2() {
+		AlertDialog.Builder customDia1=new AlertDialog.Builder(this);
+		customDia1.setIcon(R.mipmap.ic_launcher);
+		final View viewDia1= LayoutInflater.from(this).inflate(R.layout.alert_dialog, null);
+		TextView textView1 = (TextView) viewDia1.findViewById(R.id.unit);
+		textView1.setText("db");
+		TextView textView2 = (TextView) viewDia1.findViewById(R.id.fanwei);
+		textView2.setText("范围：0db-2db");
+		customDia1.setTitle("设置发射功率2");
+		customDia1.setView(viewDia1);
+		customDia1.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				TextView textView = (TextView) viewDia1.findViewById(R.id.newValue);
+				newValue = textView.getText().toString();
+				sendpower2.setText(newValue);
+				int value = Integer.valueOf(newValue);
+				byte p2 = (byte) (value &0xff);
+				String txp1 = sendpower1.getText().toString();
+				value = Integer.valueOf(txp1);
+				byte p1 = (byte) (value &0xff);
+				String txp3 = sendpower3.getText().toString();
+				value = Integer.valueOf(txp3);
+				byte p3 = (byte) (value &0xff);
+				byte[] txpower = new byte[3];
+				txpower[0] = p1;
+				txpower[1] = p2;
+				txpower[2] = p3;
+				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.sendPowerRW), txpower);////写入
+			}
+		});
+		customDia1.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				dialog.dismiss();
+			}
+		});
+		customDia1.create().show();
+	}
+
+	//设置发射功率3
+	private void setSendPower3() {
+		AlertDialog.Builder customDia1=new AlertDialog.Builder(this);
+		customDia1.setIcon(R.mipmap.ic_launcher);
+		final View viewDia1= LayoutInflater.from(this).inflate(R.layout.alert_dialog, null);
+		TextView textView1 = (TextView) viewDia1.findViewById(R.id.unit);
+		textView1.setText("db");
+		TextView textView2 = (TextView) viewDia1.findViewById(R.id.fanwei);
+		textView2.setText("范围：0db-2db");
+		customDia1.setTitle("设置发射功率3");
+		customDia1.setView(viewDia1);
+		customDia1.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				TextView textView = (TextView) viewDia1.findViewById(R.id.newValue);
+				newValue = textView.getText().toString();
+				sendpower3.setText(newValue);
+				int value = Integer.valueOf(newValue);
+				byte p3 = (byte) (value &0xff);
+				String txp2 = sendpower2.getText().toString();
+				value = Integer.valueOf(txp2);
+				Util.changeStringToByte(txp2);
+				byte p2 = (byte) (value &0xff);
+				String txp1 = sendpower1.getText().toString();
+				value = Integer.valueOf(txp1);
+				byte p1 = (byte) (value &0xff);
+				byte[] txpower = new byte[3];
+				txpower[0] = p1;
+				txpower[1] = p2;
+				txpower[2] = p3;
+				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.sendPowerRW), txpower);////写入
 			}
 		});
 		customDia1.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -718,10 +912,20 @@ public class DeviceSettingtActivity extends FLActivity {
 			public void onClick(DialogInterface dialog, int which) {
 				TextView textView = (TextView) viewDia1.findViewById(R.id.newValue);
 				newValue = textView.getText().toString();
-				heartratemax.setText(newValue + "bpm");
+				heartratemax.setText(newValue);
 				int value = Integer.valueOf(newValue);
-				p = Util.shortToLH(value);
-				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.heartRateMaxMinQ), p);////写入
+				byte p2 = (byte) (value &0xff);
+				String hrmin = heartratemin.getText().toString();
+				value = Integer.valueOf(hrmin);
+				byte p1 = (byte) (value &0xff);
+				String qvalue = heartrateqvalue.getText().toString();
+				value = Integer.valueOf(qvalue);
+				byte p3 = (byte) (value &0xff);
+				byte[] hrmmq = new byte[3];
+				hrmmq[0] = p1;
+				hrmmq[1] = p2;
+				hrmmq[2] = p3;
+				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.heartRateMaxMinQ), hrmmq);////写入
 			}
 		});
 		customDia1.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -751,10 +955,20 @@ public class DeviceSettingtActivity extends FLActivity {
 			public void onClick(DialogInterface dialog, int which) {
 				TextView textView = (TextView) viewDia1.findViewById(R.id.newValue);
 				newValue = textView.getText().toString();
-				heartratemin.setText(newValue + "bpm");
+				heartratemin.setText(newValue);
 				int value = Integer.valueOf(newValue);
-				p = Util.shortToLH(value);
-				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.heartRateMaxMinQ), p);////写入
+				byte p1 = (byte) (value &0xff);
+				String hrmax = heartratemax.getText().toString();
+				value = Integer.valueOf(hrmax);
+				byte p2 = (byte) (value &0xff);
+				String qvalue = heartrateqvalue.getText().toString();
+				value = Integer.valueOf(qvalue);
+				byte p3 = (byte) (value &0xff);
+				byte[] hrmmq = new byte[3];
+				hrmmq[0] = p1;
+				hrmmq[1] = p2;
+				hrmmq[2] = p3;
+				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.heartRateMaxMinQ), hrmmq);////写入
 			}
 		});
 		customDia1.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -783,10 +997,20 @@ public class DeviceSettingtActivity extends FLActivity {
 			public void onClick(DialogInterface dialog, int which) {
 				TextView textView = (TextView) viewDia1.findViewById(R.id.newValue);
 				newValue = textView.getText().toString();
-				heartrateqvalue.setText(newValue + "bpm");
+				heartrateqvalue.setText(newValue);
 				int value = Integer.valueOf(newValue);
-				p = Util.shortToLH(value);
-				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.heartRateMaxMinQ), p);////写入
+				byte p3 = (byte) (value &0xff);
+				String hrmin = heartratemin.getText().toString();
+				value = Integer.valueOf(hrmin);
+				byte p1 = (byte) (value &0xff);
+				String hrmax = heartratemax.getText().toString();
+				value = Integer.valueOf(hrmax);
+				byte p2 = (byte) (value &0xff);
+				byte[] hrmmq = new byte[3];
+				hrmmq[0] = p1;
+				hrmmq[1] = p2;
+				hrmmq[2] = p3;
+				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.heartRateMaxMinQ), hrmmq);////写入
 			}
 		});
 		customDia1.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -815,10 +1039,24 @@ public class DeviceSettingtActivity extends FLActivity {
 			public void onClick(DialogInterface dialog, int which) {
 				TextView textView = (TextView) viewDia1.findViewById(R.id.newValue);
 				newValue = textView.getText().toString();
-				extime.setText(newValue + "时");
+				extime.setText(newValue);
 				int value = Integer.valueOf(newValue);
-				p = Util.shortToLH(value);
-				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.sportMealTime), p);////写入
+				byte t1 = (byte) (value &0xff);
+				String st2 = breadfasttime.getText().toString();
+				value = Integer.valueOf(st2);
+				byte t2 = (byte) (value &0xff);
+				String st3 = lunchtime.getText().toString();
+				value = Integer.valueOf(st3);
+				byte t3 = (byte) (value &0xff);
+				String st4 = dinnertime.getText().toString();
+				value = Integer.valueOf(st4);
+				byte t4 = (byte) (value &0xff);
+				byte[] times = new byte[4];
+				times[0] = t1;
+				times[1] = t2;
+				times[2] = t3;
+				times[3] = t4;
+				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.sportMealTime), times);////写入
 			}
 		});
 		customDia1.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -848,10 +1086,24 @@ public class DeviceSettingtActivity extends FLActivity {
 			public void onClick(DialogInterface dialog, int which) {
 				TextView textView = (TextView) viewDia1.findViewById(R.id.newValue);
 				newValue = textView.getText().toString();
-				breadfasttime.setText(newValue + "时");
+				breadfasttime.setText(newValue);
 				int value = Integer.valueOf(newValue);
-				p = Util.shortToLH(value);
-				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.sportMealTime), p);////写入
+				byte t2 = (byte) (value &0xff);
+				String st1 = extime.getText().toString();
+				value = Integer.valueOf(st1);
+				byte t1 = (byte) (value &0xff);
+				String st3 = lunchtime.getText().toString();
+				value = Integer.valueOf(st3);
+				byte t3 = (byte) (value &0xff);
+				String st4 = dinnertime.getText().toString();
+				value = Integer.valueOf(st4);
+				byte t4 = (byte) (value &0xff);
+				byte[] times = new byte[4];
+				times[0] = t1;
+				times[1] = t2;
+				times[2] = t3;
+				times[3] = t4;
+				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.sportMealTime), times);////写入
 			}
 		});
 		customDia1.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -881,10 +1133,24 @@ public class DeviceSettingtActivity extends FLActivity {
 			public void onClick(DialogInterface dialog, int which) {
 				TextView textView = (TextView) viewDia1.findViewById(R.id.newValue);
 				newValue = textView.getText().toString();
-				lunchtime.setText(newValue + "时");
+				lunchtime.setText(newValue);
 				int value = Integer.valueOf(newValue);
-				p = Util.shortToLH(value);
-				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.sportMealTime), p);////写入
+				byte t3 = (byte) (value &0xff);
+				String st2 = breadfasttime.getText().toString();
+				value = Integer.valueOf(st2);
+				byte t2 = (byte) (value &0xff);
+				String st1 = extime.getText().toString();
+				value = Integer.valueOf(st1);
+				byte t1 = (byte) (value &0xff);
+				String st4 = dinnertime.getText().toString();
+				value = Integer.valueOf(st4);
+				byte t4 = (byte) (value &0xff);
+				byte[] times = new byte[4];
+				times[0] = t1;
+				times[1] = t2;
+				times[2] = t3;
+				times[3] = t4;
+				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.sportMealTime), times);////写入
 			}
 		});
 		customDia1.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -913,10 +1179,24 @@ public class DeviceSettingtActivity extends FLActivity {
 			public void onClick(DialogInterface dialog, int which) {
 				TextView textView = (TextView) viewDia1.findViewById(R.id.newValue);
 				newValue = textView.getText().toString();
-				dinnertime.setText(newValue + "时");
+				dinnertime.setText(newValue);
 				int value = Integer.valueOf(newValue);
-				p = Util.shortToLH(value);
-				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.sportMealTime), p);////写入
+				byte t4 = (byte) (value &0xff);
+				String st2 = breadfasttime.getText().toString();
+				value = Integer.valueOf(st2);
+				byte t2 = (byte) (value &0xff);
+				String st3 = lunchtime.getText().toString();
+				value = Integer.valueOf(st3);
+				byte t3 = (byte) (value &0xff);
+				String st1 = extime.getText().toString();
+				value = Integer.valueOf(st1);
+				byte t1 = (byte) (value &0xff);
+				byte[] times = new byte[4];
+				times[0] = t1;
+				times[1] = t2;
+				times[2] = t3;
+				times[3] = t4;
+				mBluetoothLeService.writeMessage(UUID.fromString(SampleGattAttributes.sportMealTime), times);////写入
 			}
 		});
 		customDia1.setNegativeButton("取消", new DialogInterface.OnClickListener() {

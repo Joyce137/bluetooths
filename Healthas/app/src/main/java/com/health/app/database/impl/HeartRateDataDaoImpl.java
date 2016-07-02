@@ -3,13 +3,15 @@ package com.health.app.database.impl;
 import android.content.Context;
 
 import com.health.app.database.DBConstants;
-import com.health.app.database.entity.HeartRateData;
+import com.health.app.database.entity.HeartRateDataEntity;
 import com.health.app.database.support.DaoSupportImpl;
+import com.health.app.statics.BleInfo;
+import com.health.app.statics.Util;
 
 /**
  * Created by CaoRuijuan on 6/18/16.
  */
-public class HeartRateDataDaoImpl extends DaoSupportImpl<HeartRateData> {
+public class HeartRateDataDaoImpl extends DaoSupportImpl<HeartRateDataEntity> {
     private Context context;
     private final static String TAG = ScanBleDataDaoImpl.class.getSimpleName();
 //    private String userName;
@@ -19,7 +21,7 @@ public class HeartRateDataDaoImpl extends DaoSupportImpl<HeartRateData> {
         this.context = context;
 
         try {
-            String createSqlStr = DBConstants.CYCLEHEARTRATEDATA_CREATE;
+            String createSqlStr = DBConstants.HEARTRATEDATA_CREATE;
             getDb().execSQL(createSqlStr);
         } catch (Exception e) {
             e.printStackTrace();
@@ -30,8 +32,10 @@ public class HeartRateDataDaoImpl extends DaoSupportImpl<HeartRateData> {
                                  String data1, String data2, String data3, String data4,
                                  String data5, String data6, String data7, String data8,
                                  String data9, String data10, String data11, String data12) {
-        HeartRateData scanBleData = new HeartRateData();
+        HeartRateDataEntity scanBleData = new HeartRateDataEntity();
         scanBleData.address = address;
+        scanBleData.notifyTime = BleInfo.mCurNotifyTime;
+        scanBleData.appTime = Util.getAppTime();
         scanBleData.date = date;
         scanBleData.month = month;
         scanBleData.size = size;
@@ -48,7 +52,20 @@ public class HeartRateDataDaoImpl extends DaoSupportImpl<HeartRateData> {
         scanBleData.data11 = data11;
         scanBleData.data12 = data12;
 
+        if(checkDateTimeExistInBledate(size)){
+            return false;
+        }
         return insert(scanBleData);
+    }
+
+    private boolean checkDateTimeExistInBledate(String size) {
+        String selector = DBConstants.CYCLEHEARTRATEDATA_SIZE + "=?";
+        String[] selectorargs = new String[]{size.trim()};
+
+        if(findEntity(selector,selectorargs).size() == 0){
+            return false;
+        }
+        return true;
     }
 }
 

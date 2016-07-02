@@ -14,6 +14,11 @@ public class NightHeartRateData extends Data{
     public byte data5;
     public byte data6;
     public byte data7;
+    public byte data8;
+    public byte data9;
+    public byte data10;
+    public byte data11;
+    public byte data12;
 
     public NightHeartRateData(){
         header[0] = 0x3c;
@@ -35,6 +40,11 @@ public class NightHeartRateData extends Data{
         data[9] = data5;
         data[10] = data6;
         data[11] = data7;
+        data[12] = data8;
+        data[13] = data9;
+        data[14] = data10;
+        data[15] = data11;
+        data[16] = data12;
 
         return data;
     }
@@ -52,6 +62,12 @@ public class NightHeartRateData extends Data{
         data.data5 = dataBytes[9];
         data.data6 = dataBytes[10];
         data.data7 = dataBytes[11];
+        data.data8 = dataBytes[12];
+        data.data9 = dataBytes[13];
+        data.data10 = dataBytes[14];
+        data.data11 = dataBytes[15];
+        data.data12 = dataBytes[16];
+
         return data;
     }
 }

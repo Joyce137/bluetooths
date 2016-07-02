@@ -3,7 +3,7 @@ package com.health.app.database.impl;
 import android.content.Context;
 
 import com.health.app.database.DBConstants;
-import com.health.app.database.entity.SleepModeHeartRateData;
+import com.health.app.database.entity.SleepModeHeartRateDataEntity;
 import com.health.app.database.support.DaoSupportImpl;
 import com.health.app.statics.Util;
 
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by CaoRuijuan on 3/20/16.
  */
-public class SleepModeHeartRataDataDaoImpl extends DaoSupportImpl<SleepModeHeartRateData> {
+public class SleepModeHeartRataDataDaoImpl extends DaoSupportImpl<SleepModeHeartRateDataEntity> {
     private Context context;
     private final static String TAG = SleepModeHeartRataDataDaoImpl.class.getSimpleName();
 
@@ -28,16 +28,16 @@ public class SleepModeHeartRataDataDaoImpl extends DaoSupportImpl<SleepModeHeart
     }
 
     public boolean insertHeartRataData(String heartrate) {
-        SleepModeHeartRateData sleepModeHeartRateData = new SleepModeHeartRateData();
-        sleepModeHeartRateData.heartrate = heartrate;
-        sleepModeHeartRateData.datatime = Util.getDataAndTime();
+        SleepModeHeartRateDataEntity sleepModeHeartRateDataEntity = new SleepModeHeartRateDataEntity();
+        sleepModeHeartRateDataEntity.heartrate = heartrate;
+        sleepModeHeartRateDataEntity.datatime = Util.getDataAndTime();
 
         //插入数据
         if(checkDateTimeExistInHeartRateDatadate(Util.getDataAndTime())){
             return false;
         }
          if(checkNowThreeMinute())
-            return insert(sleepModeHeartRateData);
+            return insert(sleepModeHeartRateDataEntity);
         else {
             return false;
         }
@@ -61,7 +61,7 @@ public class SleepModeHeartRataDataDaoImpl extends DaoSupportImpl<SleepModeHeart
 
         String sqlStr = "select "+DBConstants.BLE_DATATIME + " from "+DBConstants.TABLE_HEARTRATE+
                 " order by "+ DBConstants.TABLE_KEY+" desc";
-        ArrayList<SleepModeHeartRateData> dateTimeResult = executeSql(sqlStr);
+        ArrayList<SleepModeHeartRateDataEntity> dateTimeResult = executeSql(sqlStr);
         if(dateTimeResult.size() == 0){
             return true;
         }
@@ -70,7 +70,7 @@ public class SleepModeHeartRataDataDaoImpl extends DaoSupportImpl<SleepModeHeart
     }
 
     //查询now之前的心率数据
-    public List<SleepModeHeartRateData> queryHeartRateData(){
+    public List<SleepModeHeartRateDataEntity> queryHeartRateData(){
         String now = Util.getDataAndTime();
         String selector = DBConstants.BLE_DATATIME + "<?";
         String[] selectorargs = new String[]{now.trim()};

@@ -5,10 +5,9 @@ import android.database.Cursor;
 import android.util.Log;
 
 import com.health.app.database.DBConstants;
-import com.health.app.database.entity.ScanBleData;
+import com.health.app.database.entity.ScanBleDataEntity;
 import com.health.app.database.support.DaoSupportImpl;
 import com.health.app.statics.AppPath;
-import com.health.app.statics.BleInfo;
 import com.health.app.statics.Util;
 
 import java.io.BufferedWriter;
@@ -20,7 +19,7 @@ import java.util.List;
 /**
  * Created by CaoRuijuan on 1/27/16.
  */
-public class ScanBleDataDaoImpl extends DaoSupportImpl<ScanBleData> {
+public class ScanBleDataDaoImpl extends DaoSupportImpl<ScanBleDataEntity> {
     private Context context;
     private final static String TAG = ScanBleDataDaoImpl.class.getSimpleName();
 //    private String userName;
@@ -37,20 +36,24 @@ public class ScanBleDataDaoImpl extends DaoSupportImpl<ScanBleData> {
         }
     }
 
-    public boolean insertBleData(String address, String bytes, String stepnum, String heartrate, String calorie, String amutoferce) {
-        ScanBleData scanBleData = new ScanBleData();
-        scanBleData.address = address;
-        scanBleData.bytes = bytes;
-        scanBleData.stepnum = stepnum;
-        scanBleData.heartrate = heartrate;
-        scanBleData.calorie = calorie;
-        scanBleData.amutoferce = amutoferce;
+    public boolean insertBleData(String address, String battery, String broken_state,
+                                 String heartrate, String sport_level, String stepnum,
+                                 String tx_power, String sos_state) {
+        ScanBleDataEntity scanBleDataEntity = new ScanBleDataEntity();
+        scanBleDataEntity.address = address;
+        scanBleDataEntity.battery = battery;
+        scanBleDataEntity.stepnum = stepnum;
+        scanBleDataEntity.heartrate = heartrate;
+        scanBleDataEntity.broken_state = broken_state;
+        scanBleDataEntity.sport_level = sport_level;
+        scanBleDataEntity.tx_power = tx_power;
+        scanBleDataEntity.sos_state = sos_state;
 
         //插入数据
         if(checkDateTimeExistInBledate(Util.getDataAndTime())){
             return false;
         }
-        return insert(scanBleData);
+        return insert(scanBleDataEntity);
     }
 
     //判断某个datetime是否在bledata表中
@@ -65,7 +68,7 @@ public class ScanBleDataDaoImpl extends DaoSupportImpl<ScanBleData> {
     }
 
     //查询now之前的蓝牙数据
-    public List<ScanBleData> queryBleData(){
+    public List<ScanBleDataEntity> queryBleData(){
         String now = Util.getDataAndTime();
         String selector = DBConstants.BLE_DATATIME + "<?";
         String[] selectorargs = new String[]{now.trim()};
@@ -74,7 +77,7 @@ public class ScanBleDataDaoImpl extends DaoSupportImpl<ScanBleData> {
     }
 
     //存储蓝牙数据到txt文件
-    public boolean saveScanBleDataToFile(List<ScanBleData> scanBleDatas){
+    public boolean saveScanBleDataToFile(List<ScanBleDataEntity> scanBleDataEntities){
         String filePath = AppPath.getPathByFileType("scanBleData");
         AppPath.CheckAndMkdirPathExist(filePath);
         filePath += "/scanBleData.txt";
@@ -101,9 +104,9 @@ public class ScanBleDataDaoImpl extends DaoSupportImpl<ScanBleData> {
         try {
             fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
-            for(ScanBleData scanBleData : scanBleDatas){
-                bw.write(scanBleData.datatime + " "+ scanBleData.heartrate + " "
-                + scanBleData.stepnum + " "+ scanBleData.calorie + " "+ scanBleData.amutoferce+"\n");
+            for(ScanBleDataEntity scanBleDataEntity : scanBleDataEntities){
+                bw.write(scanBleDataEntity.datatime + " "+ scanBleDataEntity.heartrate + " "
+                + scanBleDataEntity.stepnum+"\n");
             }
             bw.close();
         } catch (IOException e) {

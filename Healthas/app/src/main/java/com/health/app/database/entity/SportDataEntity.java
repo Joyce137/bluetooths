@@ -10,13 +10,19 @@ import com.health.app.database.annotation.TableName;
  */
 
 @TableName(DBConstants.TABLE_SPORTDATA)
-public class SportData {
+public class SportDataEntity {
     @PrimaryKey(autoincrement=true)
     @ColumnName(DBConstants.TABLE_KEY)
     public int id;
 
     @ColumnName(DBConstants.BLE_ADDRESS)
     public String address;
+
+    @ColumnName(DBConstants.NOTIFY_TIME)
+    public String notifyTime;
+
+    @ColumnName(DBConstants.APP_TIME)
+    public String appTime;
 
     @ColumnName(DBConstants.SPORTDATA_DATE)
     public String date;

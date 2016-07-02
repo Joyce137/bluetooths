@@ -31,7 +31,14 @@ import android.widget.Toast;
 import com.health.app.ble.BluetoothLeService;
 import com.health.app.ble.DeviceControlService;
 import com.health.app.ble.SampleGattAttributes;
+import com.health.app.database.entity.TimeDataEntity;
+import com.health.app.database.impl.CycleHeartRateDataDaoImpl;
+import com.health.app.database.impl.HeartRateDataDaoImpl;
+import com.health.app.database.impl.NightHeartRateDataDaoImpl;
 import com.health.app.database.impl.ScanBleDataDaoImpl;
+import com.health.app.database.impl.SportDataDaoImpl;
+import com.health.app.database.impl.TimeDataDaoImpl;
+import com.health.app.datas.BroadcastData;
 import com.health.app.datas.CycleHeartRateData;
 import com.health.app.datas.HeartRateData;
 import com.health.app.datas.NightHeartRateData;
@@ -95,6 +102,11 @@ public class MainActivity extends SlidingFragmentActivity {
 
 	//数据库
 	ScanBleDataDaoImpl scanBleDataDao;
+	TimeDataDaoImpl timeDataDao;
+	SportDataDaoImpl sportDataDao;
+	CycleHeartRateDataDaoImpl cycleHeartRateDataDao;
+	NightHeartRateDataDaoImpl nightHeartRateDataDao;
+	HeartRateDataDaoImpl heartRateDataDao;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -103,6 +115,11 @@ public class MainActivity extends SlidingFragmentActivity {
 
 		context=this;
 		scanBleDataDao = new ScanBleDataDaoImpl(context);
+		timeDataDao = new TimeDataDaoImpl(context);
+		sportDataDao = new SportDataDaoImpl(context);
+		cycleHeartRateDataDao = new CycleHeartRateDataDaoImpl(context);
+		nightHeartRateDataDao = new NightHeartRateDataDaoImpl(context);
+		heartRateDataDao = new HeartRateDataDaoImpl(context);
 
 		mainApp = MainApplication.getInstance();
 
@@ -136,25 +153,25 @@ public class MainActivity extends SlidingFragmentActivity {
 
 		initSearchBle();
 
-		checkfirstrunaday();
+//		checkfirstrunaday();
 
-//		mBluetoothLeService = DeviceControlService.mBluetoothLeService;
-//		if(mBluetoothLeService == null){
-//			return;
-//		}
-//		if (!mBluetoothLeService.initialize()) {//引用服务类的初始化
-//			return;
-//		}
-//		if(SampleGattAttributes.connectedState)return;
-//
-//		SampleGattAttributes.whichactivityconnect=true;//允许七天数据
-//
-//		if (!mBluetoothLeService.connect(BleInfo.mDeviceAddress)) {
-//			;
-//		} else {
-//			SampleGattAttributes.connectedState=true;
-////				Toast.makeText(context, "已经连接", Toast.LENGTH_LONG).show();
-//		}
+		mBluetoothLeService = DeviceControlService.mBluetoothLeService;
+		if(mBluetoothLeService == null){
+			return;
+		}
+		if (!mBluetoothLeService.initialize()) {//引用服务类的初始化
+			return;
+		}
+		if(SampleGattAttributes.connectedState)return;
+
+		SampleGattAttributes.whichactivityconnect=true;//允许七天数据
+
+		if (!mBluetoothLeService.connect(BleInfo.mDeviceAddress)) {
+			;
+		} else {
+			SampleGattAttributes.connectedState=true;
+//				Toast.makeText(context, "已经连接", Toast.LENGTH_LONG).show();
+		}
 
 
 	}
@@ -163,13 +180,20 @@ public class MainActivity extends SlidingFragmentActivity {
 		//将广播数据存储到SQLite数据库
 		if(BleInfo.mCurScanAddress == null)
 			return;
-		String heartRate = String.valueOf(scanDataBytes[19] & 0xff);
+		BroadcastData broadcastData = BroadcastData.getData(scanDataBytes);
+		String heartRate = String.valueOf(broadcastData.pluse_freq&0xff);
 		if(heartRate.equals("255"))
 			heartRate = "0";
-		String step = String.valueOf((scanDataBytes[26] & 0xff) * 256 + (scanDataBytes[25] & 0xff));
+		String step = String.valueOf(Util.vtolh(broadcastData.step));
 		String kcal = CalculateKcal.getKcal(step);
 		String byteStr = Util.bytesToHexString(scanDataBytes);
-		scanBleDataDao.insertBleData(BleInfo.mCurScanAddress,byteStr,step,heartRate,kcal,scanDataBytes.length+"");
+		String battery = String.valueOf(broadcastData.battery);
+		String broken_state = String.valueOf(broadcastData.broken_state);
+		String sport_level = String.valueOf(broadcastData.sport_level);
+		String tx_power = String.valueOf(broadcastData.tx_power);
+		String sos_state = String.valueOf(broadcastData.sos_state);
+		scanBleDataDao.insertBleData(BleInfo.mCurScanAddress,battery,broken_state,
+				heartRate,sport_level,step,tx_power,sos_state);
 	}
 
 	//current connected ble data
@@ -206,27 +230,55 @@ public class MainActivity extends SlidingFragmentActivity {
 		}
 	}
 
+	public String getTimeStr(byte b){
+		String bStr = b+"";
+		if(bStr.length() == 1)
+			return "0"+bStr;
+		else
+			return bStr;
+	}
+
 	public void showData(TimeData data){
-		Toast.makeText(context,"TimeData......",Toast.LENGTH_SHORT).show();
+//		Toast.makeText(context,"TimeDataEntity......",Toast.LENGTH_SHORT).show();
+		String timeStr = String.valueOf(data.yearInt);
+		timeStr += getTimeStr(data.month);
+		timeStr += getTimeStr(data.day);
+		timeStr += getTimeStr(data.hour);
+		timeStr += getTimeStr(data.minite);
+		timeStr += getTimeStr(data.second);
+
+		BleInfo.mCurNotifyTime = timeStr;
+		timeDataDao.insertBleData(BleInfo.mDeviceAddress,timeStr);
 	}
 
 	public void showData(SportData data){
-		Toast.makeText(context,"SportData......",Toast.LENGTH_SHORT).show();
+//		Toast.makeText(context, "SportDataEntity......",Toast.LENGTH_SHORT).show();
+		int stepInt = Util.vtolh(data.steps);
+		sportDataDao.insertBleData(BleInfo.mDeviceAddress,data.date+"",data.month+"",stepInt+"",
+				data.properSportTimes+"",data.strongSportTimes+"",data.sportStrength+"",data.validSportTimes+"");
 	}
 
 	public void showData(CycleHeartRateData data){
-		Toast.makeText(context,"CycleHeartRateData......",Toast.LENGTH_SHORT).show();
+//		Toast.makeText(context,"CycleHeartRateDataEntity......",Toast.LENGTH_SHORT).show();
+		cycleHeartRateDataDao.insertBleData(BleInfo.mDeviceAddress,data.size+"",data.data1+"",
+				data.data2+"",data.data3+"",data.data4+"",data.data5+"",data.data6+"",data.data7+"",
+				data.data8+"",data.data9+"",data.data10+"",data.data11+"", data.data12+"");
 	}
 
 	public void showData(NightHeartRateData data){
-		Toast.makeText(context,"NightHeartRateData......",Toast.LENGTH_SHORT).show();
+//		Toast.makeText(context,"NightHeartRateDataEntity......",Toast.LENGTH_SHORT).show();
+		nightHeartRateDataDao.insertBleData(BleInfo.mDeviceAddress,data.size+"",data.data1+"",
+				data.data2+"",data.data3+"",data.data4+"",data.data5+"",data.data6+"",data.data7+"",
+				data.data8+"",data.data9+"",data.data10+"",data.data11+"", data.data12+"");
 	}
 
 	public void showData(HeartRateData data){
-		Toast.makeText(context,"SleepModeHeartRateData......",Toast.LENGTH_SHORT).show();
+//		Toast.makeText(context,"SleepModeHeartRateDataEntity......",Toast.LENGTH_SHORT).show();
+		heartRateDataDao.insertBleData(BleInfo.mDeviceAddress,data.date+"",data.month+"",data.size+"",
+				data.data1+"", data.data2+"",data.data3+"",data.data4+"",
+				data.data5+"",data.data6+"",data.data7+"", data.data8+"",
+				data.data9+"",data.data10+"",data.data11+"", data.data12+"");
 	}
-
-
 
 	private void initService() {
 		serCon = new ServiceConnection() {
@@ -321,7 +373,7 @@ public class MainActivity extends SlidingFragmentActivity {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						Intent intDet = new Intent();
-						intDet.setClass(MainActivity.this, DeviceSettingtActivity.class);
+						intDet.setClass(MainActivity.this, Bind2Activity.class);
 						startActivity(intDet);
 					}
 				});
@@ -689,9 +741,9 @@ public class MainActivity extends SlidingFragmentActivity {
 					getNotifyBleData(sevenData);
 				}
 
-				if(count==7){
-					firstDayInAWeek();
-				}
+//				if(count==7){
+//					firstDayInAWeek();
+//				}
 			}
 		}
 
